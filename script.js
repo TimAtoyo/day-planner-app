@@ -25,23 +25,7 @@ function updateTime() {
 }
 
 setInterval(updateTime, 1000);
-var taskRowBg = function () {
-  // var hourOdDay = dayjs('HH');
-  // console.log(hourOdDay);
-  for (let i = 0; i < timeBlockRow.length; i++) {
-    var inputNode = timeBlockRow[i].childNodes[3];
-    var hour = inputNode.dataset.hour;
-    // console.log(inputNode);
-    // console.log(hour);
-    // if (hour < hourOdDay){
-    //   timeBlockRow.css("background-color", "grey");
 
-    // }
-  }
-  console.log(timeBlockRow[0].childNodes[3]);
-};
-
-taskRowBg();
 // Get task data from local storage
 
 var decerialisedTaks = JSON.parse(localStorage.getItem("tasks"));
