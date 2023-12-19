@@ -3,8 +3,6 @@
 //   var timeBlocksContainerEl = $(".container");
 //   var currentDayEl = $("#currentDay");
 
-const { event, Event } = require("jquery");
-
 //   // console.log(timeBlockTasksDeserialosed);
 
 //   function updateTime() {
@@ -13,7 +11,6 @@ const { event, Event } = require("jquery");
 //   }
 
 //   setInterval(updateTime, 1000);
-
 
 //   var timeBlockTasks = [
 //     {
@@ -59,7 +56,7 @@ const { event, Event } = require("jquery");
 //     //
 //     // Take the value from the the input-field
 //     if (e.target.classList[0] === "fa-regular" ) {
- 
+
 //       // console.log(e.target.getAttribute('id', '1').value);
 
 //       var timeBlockTasksSerialised = JSON.stringify(timeBlockTasks);
@@ -88,12 +85,12 @@ const { event, Event } = require("jquery");
 //             JSON.stringify(timeBlockTasksDeserialosed)
 //           );
 //           //
-//         } 
-   
+//         }
+
 //         // console.log(inputValue);
 //       }
 //     }
-  
+
 //     else if ( e.target.classList[1] === "save-btn") {
 //     // console.log(e.target.getAttribute('id', '1').value);
 
@@ -127,7 +124,7 @@ const { event, Event } = require("jquery");
 //         console.log(`Not In the loop condition and this is the index ${i}`);
 //       }
 //     }
-    
+
 // function setInputValues(){
 // var i = 0;
 // var timeBlocksDec = JSON.parse(localStorage.getItem("timeBlocks"));
@@ -138,7 +135,7 @@ const { event, Event } = require("jquery");
 //     // location.reload();
 //     i++
 //   }
-  
+
 // }
 // setInputValues()
 // console.log(e.target.classList[1]);
@@ -147,66 +144,66 @@ const { event, Event } = require("jquery");
 //   timeBlocksContainerEl.on("click", saveTask);
 // }});
 
+var timeBlockRow = $(".task-row");
+var currentDayEl = $("#currentDay");
 
-/**
- * @param event {event}
- */
-  var timeBlocksContainerEl = $(".container");
-  var currentDayEl = $("#currentDay");
+function updateTime() {
+  var today = dayjs().format("dddd MMMM YYYY, HH:mm:ss");
+  currentDayEl.text(today);
+}
 
-  // console.log(timeBlockTasksDeserialosed);
-
-  function updateTime() {
-    var today = dayjs().format("dddd MMMM YYYY, HH:mm:ss");
-    currentDayEl.text(today);
-  }
+setInterval(updateTime, 1000);
 
 
-    var timeBlockTasks = [
-    {
-      hourOfTheDay: 9,
-      taskText: document.getElementById("1").value,
-    },
-    {
-      hourOfTheDay: 10,
-      taskText: document.getElementById("2").value,
-    },
-    {
-      hourOfTheDay: 11,
-      taskText: document.getElementById("3").value,
-    },
-    {
-      hourOfTheDay: 12,
-      taskText: document.getElementById("4").value,
-    },
-    {
-      hourOfTheDay: 13,
-      taskText: document.getElementById("5").value,
-    },
-    {
-      hourOfTheDay: 14,
-      taskText: document.getElementById("6").value,
-    },
-    {
-      hourOfTheDay: 15,
-      taskText: document.getElementById("7").value,
-    },
-    {
-      hourOfTheDay: 16,
-      taskText: document.getElementById("8").value,
-    },
-    {
-      hourOfTheDay: 17,
-      taskText: document.getElementById("9").value,
-    },
-  ];
-  setInterval(updateTime, 1000);
+// 
+var timeBlockTasks = [
+  {
+    hourOfTheDay: 9,
+    taskText: document.getElementById("1").value,
+  },
+  {
+    hourOfTheDay: 10,
+    taskText: document.getElementById("2").value,
+  },
+  {
+    hourOfTheDay: 11,
+    taskText: document.getElementById("3").value,
+  },
+  {
+    hourOfTheDay: 12,
+    taskText: document.getElementById("4").value,
+  },
+  {
+    hourOfTheDay: 13,
+    taskText: document.getElementById("5").value,
+  },
+  {
+    hourOfTheDay: 14,
+    taskText: document.getElementById("6").value,
+  },
+  {
+    hourOfTheDay: 15,
+    taskText: document.getElementById("7").value,
+  },
+  {
+    hourOfTheDay: 16,
+    taskText: document.getElementById("8").value,
+  },
+  {
+    hourOfTheDay: 17,
+    taskText: document.getElementById("9").value,
+  },
+];
 
-  var saveTask = function (event){
-    // console.log(`I clicked on some thing`);
 
-    e.preventDefault()
-   
-  }
+var saveTask = function (e) {
+  // console.log(`I clicked on some thing`);
 
-  timeBlocksContainerEl.on("click", saveTask);
+  e.preventDefault();
+  console.log(e);
+  // When button is clicked - take the input value and add it to local storage
+  var inputValue = e.currentTarget.querySelector("input").value;
+  console.log(inputValue);
+};
+
+timeBlockRow.on("click", saveTask);
